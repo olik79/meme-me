@@ -19,7 +19,15 @@ class MemeMeEditorViewController: UIViewController, UIImagePickerControllerDeleg
     }
 
     @IBAction func pickImageButtonPressed(sender: UIBarButtonItem) {
-        
+        let imagePicker = UIImagePickerController()
+        imagePicker.delegate = self
+        self.presentViewController(imagePicker, animated: true, completion: nil)
+    }
+    
+    // MARK: - UIImagePickerControllerDelegate
+    func imagePickerController(picker: UIImagePickerController, didFinishPickingImage image: UIImage!, editingInfo: [NSObject : AnyObject]!) {
+        self.imageView.image = image
+        picker.dismissViewControllerAnimated(true, completion: nil)
     }
 }
 
