@@ -26,11 +26,12 @@
                                     <constraint firstAttribute="height" constant="44" id="53b-Kg-vRg"/>
                                 </constraints>
                                 <items>
-                                    <barButtonItem title="Pick Image" id="Eeg-Om-3hd">
+                                    <barButtonItem title="Album" id="Eeg-Om-3hd">
                                         <connections>
                                             <action selector="pickImageButtonPressed:" destination="vXZ-lx-hvc" id="k4B-qc-7im"/>
                                         </connections>
                                     </barButtonItem>
+                                    <barButtonItem title="📷" id="CJ9-PC-AAg" userLabel="📷"/>
                                 </items>
                             </toolbar>
                         </subviews>
