@@ -2,12 +2,13 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Meme Me Editor View Controller-->
         <scene sceneID="ufC-wZ-h7g">
             <objects>
-                <viewController id="vXZ-lx-hvc" customClass="ViewController" customModule="MemeMe" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="vXZ-lx-hvc" customClass="MemeMeEditorViewController" customModule="MemeMe" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="jyV-Pf-zRb"/>
                         <viewControllerLayoutGuide type="bottom" id="2fi-mo-0CV"/>
@@ -16,18 +17,38 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="59K-Iy-QpX">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="59K-Iy-QpX">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                             </imageView>
-                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bef-8H-UkU">
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bef-8H-UkU">
                                 <rect key="frame" x="0.0" y="556" width="600" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="53b-Kg-vRg"/>
+                                </constraints>
                                 <items>
-                                    <barButtonItem title="Item" id="Eeg-Om-3hd"/>
+                                    <barButtonItem title="Pick Image" id="Eeg-Om-3hd">
+                                        <connections>
+                                            <action selector="pickImageButtonPressed:" destination="vXZ-lx-hvc" id="k4B-qc-7im"/>
+                                        </connections>
+                                    </barButtonItem>
                                 </items>
                             </toolbar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="bef-8H-UkU" secondAttribute="bottom" id="19h-DJ-tGv"/>
+                            <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="59K-Iy-QpX" secondAttribute="bottom" id="A5H-i8-iQN"/>
+                            <constraint firstItem="bef-8H-UkU" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="-16" id="MEN-bk-AcE"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="bef-8H-UkU" secondAttribute="trailing" constant="-16" id="be1-0n-Dy1"/>
+                            <constraint firstItem="59K-Iy-QpX" firstAttribute="top" secondItem="kh9-bI-dsS" secondAttribute="topMargin" id="i1g-1y-1AR"/>
+                            <constraint firstItem="59K-Iy-QpX" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="-16" id="ptF-3c-rlf"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="59K-Iy-QpX" secondAttribute="trailing" constant="-16" id="wfu-HF-Aed"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="imageView" destination="59K-Iy-QpX" id="Zba-hW-pej"/>
+                        <outlet property="pickImageButton" destination="Eeg-Om-3hd" id="bRV-rA-mKu"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
