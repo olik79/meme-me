@@ -49,6 +49,7 @@
                     <connections>
                         <outlet property="imageView" destination="59K-Iy-QpX" id="Zba-hW-pej"/>
                         <outlet property="pickImageButton" destination="Eeg-Om-3hd" id="bRV-rA-mKu"/>
+                        <outlet property="shootImageButton" destination="CJ9-PC-AAg" id="ULQ-I9-n6c"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
