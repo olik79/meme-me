@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
@@ -19,6 +19,7 @@
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="59K-Iy-QpX">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             </imageView>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bef-8H-UkU">
                                 <rect key="frame" x="0.0" y="556" width="600" height="44"/>
@@ -34,26 +35,47 @@
                                     <barButtonItem title="📷" id="CJ9-PC-AAg" userLabel="📷"/>
                                 </items>
                             </toolbar>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" background="I" translatesAutoresizingMaskIntoConstraints="NO" id="bVT-RH-fW3" userLabel="Top Round Style Text Field">
+                                <rect key="frame" x="16" y="20" width="568" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="zQy-Zn-vtn" userLabel="Bottom Round Style Text Field">
+                                <rect key="frame" x="16" y="507" width="568" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="bef-8H-UkU" secondAttribute="bottom" id="19h-DJ-tGv"/>
                             <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="59K-Iy-QpX" secondAttribute="bottom" id="A5H-i8-iQN"/>
                             <constraint firstItem="bef-8H-UkU" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="-16" id="MEN-bk-AcE"/>
+                            <constraint firstItem="bVT-RH-fW3" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" id="UCV-rc-fbF"/>
+                            <constraint firstItem="bef-8H-UkU" firstAttribute="top" secondItem="zQy-Zn-vtn" secondAttribute="bottom" constant="19" id="VJf-Gk-M2h"/>
                             <constraint firstAttribute="trailingMargin" secondItem="bef-8H-UkU" secondAttribute="trailing" constant="-16" id="be1-0n-Dy1"/>
+                            <constraint firstItem="bVT-RH-fW3" firstAttribute="centerX" secondItem="bef-8H-UkU" secondAttribute="centerX" id="fro-bs-Rtl"/>
                             <constraint firstItem="59K-Iy-QpX" firstAttribute="top" secondItem="kh9-bI-dsS" secondAttribute="topMargin" id="i1g-1y-1AR"/>
+                            <constraint firstItem="zQy-Zn-vtn" firstAttribute="trailing" secondItem="kh9-bI-dsS" secondAttribute="trailingMargin" id="jPk-YK-ivF"/>
+                            <constraint firstItem="zQy-Zn-vtn" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" id="pfg-wl-KJc"/>
                             <constraint firstItem="59K-Iy-QpX" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="-16" id="ptF-3c-rlf"/>
+                            <constraint firstItem="bVT-RH-fW3" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" id="uKD-C9-5gl"/>
                             <constraint firstAttribute="trailingMargin" secondItem="59K-Iy-QpX" secondAttribute="trailing" constant="-16" id="wfu-HF-Aed"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="bottomTextField" destination="zQy-Zn-vtn" id="ZPz-ng-cu2"/>
                         <outlet property="imageView" destination="59K-Iy-QpX" id="Zba-hW-pej"/>
                         <outlet property="pickImageButton" destination="Eeg-Om-3hd" id="bRV-rA-mKu"/>
                         <outlet property="shootImageButton" destination="CJ9-PC-AAg" id="ULQ-I9-n6c"/>
+                        <outlet property="topTextField" destination="bVT-RH-fW3" id="em9-wb-qAz"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
         </scene>
     </scenes>
+    <resources>
+        <image name="I" width="16" height="16"/>
+    </resources>
 </document>
