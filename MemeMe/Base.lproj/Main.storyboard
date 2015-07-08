@@ -35,15 +35,21 @@
                                     <barButtonItem title="📷" id="CJ9-PC-AAg" userLabel="📷"/>
                                 </items>
                             </toolbar>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" background="I" translatesAutoresizingMaskIntoConstraints="NO" id="bVT-RH-fW3" userLabel="Top Round Style Text Field">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bVT-RH-fW3" userLabel="Top Round Style Text Field">
                                 <rect key="frame" x="16" y="20" width="568" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="1ad-an-07j"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters"/>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="zQy-Zn-vtn" userLabel="Bottom Round Style Text Field">
                                 <rect key="frame" x="16" y="507" width="568" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="E2o-tA-IKu"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters"/>
                             </textField>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
@@ -65,17 +71,16 @@
                     </view>
                     <connections>
                         <outlet property="bottomTextField" destination="zQy-Zn-vtn" id="ZPz-ng-cu2"/>
+                        <outlet property="bottomTextFieldHeightConstraint" destination="E2o-tA-IKu" id="dcE-TQ-CaS"/>
                         <outlet property="imageView" destination="59K-Iy-QpX" id="Zba-hW-pej"/>
                         <outlet property="pickImageButton" destination="Eeg-Om-3hd" id="bRV-rA-mKu"/>
                         <outlet property="shootImageButton" destination="CJ9-PC-AAg" id="ULQ-I9-n6c"/>
                         <outlet property="topTextField" destination="bVT-RH-fW3" id="em9-wb-qAz"/>
+                        <outlet property="topTextFieldHeightConstraint" destination="1ad-an-07j" id="Xnp-Ph-woc"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
         </scene>
     </scenes>
-    <resources>
-        <image name="I" width="16" height="16"/>
-    </resources>
 </document>

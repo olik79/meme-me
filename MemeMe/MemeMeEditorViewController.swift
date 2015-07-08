@@ -17,8 +17,11 @@ class MemeMeEditorViewController: UIViewController, UIImagePickerControllerDeleg
     @IBOutlet weak var topTextField: UITextField!
     @IBOutlet weak var bottomTextField: UITextField!
     
-    let defaultTopText = "TOP"
-    let defaultBottomText = "BOTTOM"
+    @IBOutlet weak var topTextFieldHeightConstraint: NSLayoutConstraint!
+    @IBOutlet weak var bottomTextFieldHeightConstraint: NSLayoutConstraint!
+    
+    let defaultTopText = "top"
+    let defaultBottomText = "bottom"
     
     let memeTextAttributes = [
         NSStrokeWidthAttributeName : -3.0,
@@ -30,6 +33,9 @@ class MemeMeEditorViewController: UIViewController, UIImagePickerControllerDeleg
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         
+        topTextField.text = defaultTopText
+        bottomTextField.text = defaultBottomText
+
         // shootImageButton.enabled = UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.Camera)
     }
     
@@ -37,19 +43,21 @@ class MemeMeEditorViewController: UIViewController, UIImagePickerControllerDeleg
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
-        topTextField.text = defaultTopText
         topTextField.backgroundColor = UIColor.clearColor()
         topTextField.delegate = self
         topTextField.defaultTextAttributes = memeTextAttributes
         topTextField.textAlignment = NSTextAlignment.Center
         
-        bottomTextField.text = defaultBottomText
+        
         bottomTextField.backgroundColor = UIColor.clearColor()
         bottomTextField.delegate = self
         bottomTextField.defaultTextAttributes = memeTextAttributes
         bottomTextField.textAlignment = NSTextAlignment.Center
-        
-        
+
+        let fontHeight = (topTextField.text as NSString).sizeWithAttributes(memeTextAttributes).height
+
+        topTextFieldHeightConstraint.constant = fontHeight
+        bottomTextFieldHeightConstraint.constant = fontHeight
     }
     
     // MARK: - IBActions
