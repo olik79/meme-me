@@ -35,8 +35,14 @@ class MemeMeEditorViewController: UIViewController, UIImagePickerControllerDeleg
         
         topTextField.text = defaultTopText
         bottomTextField.text = defaultBottomText
+        
+        registerForKeyboardNotifications()
 
         // shootImageButton.enabled = UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.Camera)
+    }
+    
+    override func viewWillDisappear(animated: Bool) {
+        unregisterForKeyboardNotifications()
     }
     
     override func viewDidLoad() {
@@ -58,6 +64,31 @@ class MemeMeEditorViewController: UIViewController, UIImagePickerControllerDeleg
 
         topTextFieldHeightConstraint.constant = fontHeight
         bottomTextFieldHeightConstraint.constant = fontHeight
+    }
+    
+    func getHeightOfKeyboard(notification: NSNotification) -> CGFloat {
+        let userInfo = notification.userInfo
+        let keyboardFrame = userInfo![UIKeyboardFrameEndUserInfoKey] as! NSValue // CGRect
+        return keyboardFrame.CGRectValue().height
+    }
+    
+    func keyboardWillShow(notification: NSNotification) {
+        view.frame.origin.y -= getHeightOfKeyboard(notification)
+    }
+    
+    func keyboardWillHide(notification: NSNotification) {
+        view.frame.origin.y += getHeightOfKeyboard(notification)
+    }
+    
+    // MARK: - Registration for Broadcasts
+    func registerForKeyboardNotifications() {
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillShow:", name: UIKeyboardWillShowNotification, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillHide:", name: UIKeyboardWillHideNotification, object: nil)
+    }
+    
+    func unregisterForKeyboardNotifications() {
+        NSNotificationCenter.defaultCenter().removeObserver(self, name: UIKeyboardWillShowNotification, object: nil)
+        NSNotificationCenter.defaultCenter().removeObserver(self, name: UIKeyboardWillHideNotification, object: nil)
     }
     
     // MARK: - IBActions
