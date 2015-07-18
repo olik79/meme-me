@@ -38,8 +38,8 @@
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="4Wz-eo-1Dl"/>
                                 </items>
                             </toolbar>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bVT-RH-fW3" userLabel="Top Round Style Text Field">
-                                <rect key="frame" x="16" y="20" width="568" height="30"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bVT-RH-fW3" userLabel="Top Round Style Text Field">
+                                <rect key="frame" x="16" y="64" width="568" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="1ad-an-07j"/>
                                 </constraints>
@@ -73,15 +73,25 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="JNa-xj-2SY">
-                        <barButtonItem key="leftBarButtonItem" systemItem="action" id="4hY-eF-JER"/>
-                        <barButtonItem key="rightBarButtonItem" title="Cancel" id="23f-8y-lGO"/>
+                        <barButtonItem key="leftBarButtonItem" systemItem="action" id="4hY-eF-JER" userLabel="Share">
+                            <connections>
+                                <action selector="shareButtonClicked:" destination="vXZ-lx-hvc" id="Mpo-dY-y98"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Cancel" id="23f-8y-lGO">
+                            <connections>
+                                <action selector="cancelButtonClicked:" destination="vXZ-lx-hvc" id="za3-Ra-8kx"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="bottomTextField" destination="zQy-Zn-vtn" id="ZPz-ng-cu2"/>
                         <outlet property="bottomTextFieldHeightConstraint" destination="E2o-tA-IKu" id="dcE-TQ-CaS"/>
                         <outlet property="imageView" destination="59K-Iy-QpX" id="Zba-hW-pej"/>
                         <outlet property="pickImageButton" destination="Eeg-Om-3hd" id="bRV-rA-mKu"/>
+                        <outlet property="shareButton" destination="4hY-eF-JER" id="rwh-dp-10f"/>
                         <outlet property="shootImageButton" destination="CJ9-PC-AAg" id="ULQ-I9-n6c"/>
+                        <outlet property="toolbar" destination="bef-8H-UkU" id="eHl-nI-EdE"/>
                         <outlet property="topTextField" destination="bVT-RH-fW3" id="em9-wb-qAz"/>
                         <outlet property="topTextFieldHeightConstraint" destination="1ad-an-07j" id="Xnp-Ph-woc"/>
                     </connections>
@@ -92,7 +102,7 @@
         <!--Navigation Controller-->
         <scene sceneID="kXv-pJ-KAX">
             <objects>
-                <navigationController id="7PT-IK-KUf" sceneMemberID="viewController">
+                <navigationController autoresizesArchivedViewToFullSize="NO" modalPresentationStyle="currentContext" id="7PT-IK-KUf" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="v6d-OY-JfU">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
