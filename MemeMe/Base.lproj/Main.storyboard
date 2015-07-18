@@ -34,7 +34,11 @@
                                         </connections>
                                     </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="are-GF-fzE"/>
-                                    <barButtonItem systemItem="camera" id="CJ9-PC-AAg" userLabel="📷"/>
+                                    <barButtonItem systemItem="camera" id="CJ9-PC-AAg" userLabel="📷">
+                                        <connections>
+                                            <action selector="shootImageButtonPressed:" destination="vXZ-lx-hvc" id="sJc-DJ-7g6"/>
+                                        </connections>
+                                    </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="4Wz-eo-1Dl"/>
                                 </items>
                             </toolbar>

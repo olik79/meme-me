@@ -27,8 +27,6 @@ class MemeMeEditorViewController: UIViewController, UIImagePickerControllerDeleg
     let defaultTopText = "TOP"
     let defaultBottomText = "BOTTOM"
     
-    var meme: Meme!
-    
     let memeTextAttributes = [
         NSStrokeWidthAttributeName : -3.0,
         NSStrokeColorAttributeName : UIColor.blackColor(),
@@ -56,6 +54,9 @@ class MemeMeEditorViewController: UIViewController, UIImagePickerControllerDeleg
         // Do any additional setup after loading the view, typically from a nib.
         
         shareButton.enabled = false
+        if !UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.Camera) {
+            shootImageButton.enabled = false
+        }
         
         topTextField.backgroundColor = UIColor.clearColor()
         topTextField.delegate = self
@@ -113,8 +114,8 @@ class MemeMeEditorViewController: UIViewController, UIImagePickerControllerDeleg
         }
     }
     
-    func save() {
-        self.meme = Meme(textTop: topTextField.text, textBottom: bottomTextField.text, image: imageView.image!, memedImage: generateMemedImage())
+    func generateMeme() -> Meme {
+        return Meme(textTop: topTextField.text, textBottom: bottomTextField.text, image: imageView.image!, memedImage: generateMemedImage())
     }
     
     func generateMemedImage() -> UIImage {
@@ -159,8 +160,9 @@ class MemeMeEditorViewController: UIViewController, UIImagePickerControllerDeleg
     }
     
     @IBAction func shareButtonClicked(sender: UIBarButtonItem) {
-        self.save()
-        if let memedImage = self.meme.memedImage {
+        let meme = self.generateMeme()
+        
+        if let memedImage = meme.memedImage {
             let activityViewController = UIActivityViewController(activityItems: [memedImage], applicationActivities: nil)
             self.presentViewController(activityViewController, animated: true, completion: nil)
         }
