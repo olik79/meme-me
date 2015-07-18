@@ -131,6 +131,11 @@ class MemeMeEditorViewController: UIViewController, UIImagePickerControllerDeleg
         return memedImage
     }
     
+    func saveMeme(meme: Meme) {
+        let delegate = UIApplication.sharedApplication().delegate as! AppDelegate
+        delegate.memes.append(meme)
+    }
+    
     // MARK: - Registration for Broadcasts
     func registerForKeyboardNotifications() {
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillShow:", name: UIKeyboardWillShowNotification, object: nil)
