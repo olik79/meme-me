@@ -20,8 +20,8 @@ class MemeMeEditorViewController: UIViewController, UIImagePickerControllerDeleg
     @IBOutlet weak var topTextFieldHeightConstraint: NSLayoutConstraint!
     @IBOutlet weak var bottomTextFieldHeightConstraint: NSLayoutConstraint!
     
-    let defaultTopText = "top"
-    let defaultBottomText = "bottom"
+    let defaultTopText = "TOP"
+    let defaultBottomText = "BOTTOM"
     
     let memeTextAttributes = [
         NSStrokeWidthAttributeName : -3.0,
@@ -52,12 +52,14 @@ class MemeMeEditorViewController: UIViewController, UIImagePickerControllerDeleg
         topTextField.backgroundColor = UIColor.clearColor()
         topTextField.delegate = self
         topTextField.defaultTextAttributes = memeTextAttributes
+        topTextField.autocapitalizationType = UITextAutocapitalizationType.AllCharacters
         topTextField.textAlignment = NSTextAlignment.Center
         
         
         bottomTextField.backgroundColor = UIColor.clearColor()
         bottomTextField.delegate = self
         bottomTextField.defaultTextAttributes = memeTextAttributes
+        bottomTextField.autocapitalizationType = UITextAutocapitalizationType.AllCharacters
         bottomTextField.textAlignment = NSTextAlignment.Center
 
         let fontHeight = (topTextField.text as NSString).sizeWithAttributes(memeTextAttributes).height
@@ -78,6 +80,29 @@ class MemeMeEditorViewController: UIViewController, UIImagePickerControllerDeleg
     
     func keyboardWillHide(notification: NSNotification) {
         view.frame.origin.y += getHeightOfKeyboard(notification)
+    }
+    
+    // MARK: - Meme generation
+    func showTopBars(showBars: Bool) {
+        if showBars {
+            println("showing top bars")
+        } else {
+            println("hiding top bars")
+        }
+    }
+    
+    func generateMemedImage() -> UIImage {
+        showTopBars(false)
+        
+        UIGraphicsBeginImageContext(self.view.frame.size)
+        
+        self.view.drawViewHierarchyInRect(self.view.frame, afterScreenUpdates: true)
+        let memedImage: UIImage = UIGraphicsGetImageFromCurrentImageContext()
+        
+        UIGraphicsEndImageContext()
+        
+        showTopBars(true)
+        return memedImage
     }
     
     // MARK: - Registration for Broadcasts
@@ -127,6 +152,15 @@ class MemeMeEditorViewController: UIViewController, UIImagePickerControllerDeleg
     func textFieldShouldReturn(textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         return true
+    }
+    
+    func textField(textField: UITextField, shouldChangeCharactersInRange range: NSRange, replacementString string: String) -> Bool {
+        var newString: NSString = textField.text
+        newString = newString.stringByReplacingCharactersInRange(range, withString: string)
+        newString = newString.uppercaseString
+
+        textField.text = newString as String
+        return false
     }
 }
 
