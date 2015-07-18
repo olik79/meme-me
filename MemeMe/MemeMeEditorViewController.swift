@@ -40,9 +40,13 @@ class MemeMeEditorViewController: UIViewController, UIImagePickerControllerDeleg
         topTextField.text = defaultTopText
         bottomTextField.text = defaultBottomText
         
+        shareButton.enabled = false
+        if !UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.Camera) {
+            shootImageButton.enabled = false
+        }
+        
         registerForKeyboardNotifications()
 
-        // shootImageButton.enabled = UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.Camera)
     }
     
     override func viewWillDisappear(animated: Bool) {
@@ -52,11 +56,6 @@ class MemeMeEditorViewController: UIViewController, UIImagePickerControllerDeleg
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        
-        shareButton.enabled = false
-        if !UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.Camera) {
-            shootImageButton.enabled = false
-        }
         
         topTextField.backgroundColor = UIColor.clearColor()
         topTextField.delegate = self
