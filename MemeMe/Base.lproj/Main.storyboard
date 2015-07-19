@@ -5,7 +5,7 @@
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
-        <!--Table View Controller-->
+        <!--Table-->
         <scene sceneID="hnB-Pu-BRr">
             <objects>
                 <tableViewController id="Qmk-55-bfC" sceneMemberID="viewController">
@@ -26,13 +26,13 @@
                             <outlet property="delegate" destination="Qmk-55-bfC" id="XWW-XZ-Te5"/>
                         </connections>
                     </tableView>
-                    <tabBarItem key="tabBarItem" image="TableViewTabItem" id="DBI-u1-htu"/>
+                    <tabBarItem key="tabBarItem" title="Table" image="TableViewTabItem" id="DBI-u1-htu"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dTq-wH-ACI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="358" y="-311"/>
         </scene>
-        <!--Collection View Controller-->
+        <!--Collection-->
         <scene sceneID="Wtn-ky-LXo">
             <objects>
                 <collectionViewController id="iJi-rR-rgZ" sceneMemberID="viewController">
@@ -61,7 +61,7 @@
                             <outlet property="delegate" destination="iJi-rR-rgZ" id="1Vw-Sw-cuD"/>
                         </connections>
                     </collectionView>
-                    <tabBarItem key="tabBarItem" title="" image="CollectionViewTabItem" id="D1r-9u-3vo"/>
+                    <tabBarItem key="tabBarItem" title="Collection" image="CollectionViewTabItem" id="D1r-9u-3vo"/>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="erH-1m-xaJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -170,7 +170,13 @@
         <scene sceneID="dAi-6h-Akg">
             <objects>
                 <tabBarController id="nLu-d9-OsM" sceneMemberID="viewController">
-                    <navigationItem key="navigationItem" id="hiB-V7-1rT"/>
+                    <navigationItem key="navigationItem" id="hiB-V7-1rT">
+                        <barButtonItem key="rightBarButtonItem" title="Item" systemItem="add" id="t1O-HW-Z4d">
+                            <connections>
+                                <segue destination="vXZ-lx-hvc" kind="show" id="gBy-Ee-gJk"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <nil key="simulatedBottomBarMetrics"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="GcI-z4-SHK">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>
