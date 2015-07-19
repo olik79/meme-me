@@ -37,9 +37,6 @@ class MemeMeEditorViewController: UIViewController, UIImagePickerControllerDeleg
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         
-        topTextField.text = defaultTopText
-        bottomTextField.text = defaultBottomText
-        
         registerForKeyboardNotifications()
 
     }
@@ -56,6 +53,9 @@ class MemeMeEditorViewController: UIViewController, UIImagePickerControllerDeleg
         if !UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.Camera) {
             shootImageButton.enabled = false
         }
+        
+        topTextField.text = defaultTopText
+        bottomTextField.text = defaultBottomText
         
         topTextField.backgroundColor = UIColor.clearColor()
         topTextField.delegate = self
