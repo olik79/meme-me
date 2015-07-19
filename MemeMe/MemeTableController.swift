@@ -22,5 +22,20 @@ class MemeTableController: UITableViewController {
         return false
     }
     
-
+    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        let cellIdentifier = "MemeTableCell"
+        let position = indexPath.row
+        let currentMeme = self.memes[position]
+        
+        var cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier) as? UITableViewCell
+        if cell == nil {
+            cell = UITableViewCell(style: UITableViewCellStyle.Default, reuseIdentifier: cellIdentifier)
+        }
+        
+        cell?.textLabel?.text =  "\(currentMeme.textTop) \(currentMeme.textBottom)"
+        cell?.imageView?.image = currentMeme.memedImage
+        
+        return cell!
+    }
+    
 }

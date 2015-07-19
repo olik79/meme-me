@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4F77F7531B5BA15800450C4C /* MemeTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F77F7521B5BA15800450C4C /* MemeTableCell.swift */; };
 		4F959A811B5A718300CDE2CF /* Meme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F959A801B5A718300CDE2CF /* Meme.swift */; };
 		4F959A831B5ABBD400CDE2CF /* MemeTableController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F959A821B5ABBD400CDE2CF /* MemeTableController.swift */; };
 		4FA0B6DA1B4849130089606E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FA0B6D91B4849130089606E /* AppDelegate.swift */; };
@@ -28,6 +29,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4F77F7521B5BA15800450C4C /* MemeTableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MemeTableCell.swift; sourceTree = "<group>"; };
 		4F959A801B5A718300CDE2CF /* Meme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Meme.swift; sourceTree = "<group>"; };
 		4F959A821B5ABBD400CDE2CF /* MemeTableController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MemeTableController.swift; sourceTree = "<group>"; };
 		4FA0B6D41B4849130089606E /* MemeMe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MemeMe.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -97,6 +99,7 @@
 				4FA0B6E01B4849130089606E /* Images.xcassets */,
 				4FA0B6E21B4849130089606E /* LaunchScreen.xib */,
 				4FA0B6D71B4849130089606E /* Supporting Files */,
+				4F77F7521B5BA15800450C4C /* MemeTableCell.swift */,
 			);
 			path = MemeMe;
 			sourceTree = "<group>";
@@ -226,6 +229,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4F77F7531B5BA15800450C4C /* MemeTableCell.swift in Sources */,
 				4F959A831B5ABBD400CDE2CF /* MemeTableController.swift in Sources */,
 				4F959A811B5A718300CDE2CF /* Meme.swift in Sources */,
 				4FA0B6DC1B4849130089606E /* MemeMeEditorViewController.swift in Sources */,
