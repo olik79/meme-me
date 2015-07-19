@@ -40,11 +40,6 @@ class MemeMeEditorViewController: UIViewController, UIImagePickerControllerDeleg
         topTextField.text = defaultTopText
         bottomTextField.text = defaultBottomText
         
-        shareButton.enabled = false
-        if !UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.Camera) {
-            shootImageButton.enabled = false
-        }
-        
         registerForKeyboardNotifications()
 
     }
@@ -57,12 +52,16 @@ class MemeMeEditorViewController: UIViewController, UIImagePickerControllerDeleg
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
+        shareButton.enabled = false
+        if !UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.Camera) {
+            shootImageButton.enabled = false
+        }
+        
         topTextField.backgroundColor = UIColor.clearColor()
         topTextField.delegate = self
         topTextField.defaultTextAttributes = memeTextAttributes
         topTextField.autocapitalizationType = UITextAutocapitalizationType.AllCharacters
         topTextField.textAlignment = NSTextAlignment.Center
-        
         
         bottomTextField.backgroundColor = UIColor.clearColor()
         bottomTextField.delegate = self
