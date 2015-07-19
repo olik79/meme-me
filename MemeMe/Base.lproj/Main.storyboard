@@ -8,7 +8,7 @@
         <!--Table-->
         <scene sceneID="hnB-Pu-BRr">
             <objects>
-                <tableViewController id="Qmk-55-bfC" sceneMemberID="viewController">
+                <tableViewController id="Qmk-55-bfC" customClass="MemeTableController" customModule="MemeMe" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="vme-Ad-DSX">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
