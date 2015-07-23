@@ -15,6 +15,7 @@ class MemeMeEditorViewController: UIViewController, UIImagePickerControllerDeleg
     @IBOutlet weak var pickImageButton: UIBarButtonItem!
     @IBOutlet weak var shootImageButton: UIBarButtonItem!
     @IBOutlet weak var shareButton: UIBarButtonItem!
+    @IBOutlet weak var cancelButton: UIBarButtonItem!
 
     @IBOutlet weak var topTextField: UITextField!
     @IBOutlet weak var bottomTextField: UITextField!
@@ -42,6 +43,7 @@ class MemeMeEditorViewController: UIViewController, UIImagePickerControllerDeleg
     }
     
     override func viewWillDisappear(animated: Bool) {
+        super.viewWillDisappear(animated)
         unregisterForKeyboardNotifications()
     }
     
@@ -167,12 +169,18 @@ class MemeMeEditorViewController: UIViewController, UIImagePickerControllerDeleg
         
         if let memedImage = meme.memedImage {
             let activityViewController = UIActivityViewController(activityItems: [memedImage], applicationActivities: nil)
-            self.presentViewController(activityViewController, animated: true, completion: nil)
+            activityViewController.completionWithItemsHandler = { (activity, success, items, error) in
+                self.dismissViewControllerAnimated(true, completion: nil)
+            }
+            self.presentViewController(activityViewController, animated: true, completion: {() in
+                self.saveMeme(self.generateMeme())
+                // self.dismissViewControllerAnimated(true, completion: nil)
+            })
         }
     }
     
     @IBAction func cancelButtonClicked(sender: UIBarButtonItem) {
-        self.navigationController?.popToRootViewControllerAnimated(true)
+        self.dismissViewControllerAnimated(true, completion: nil)
     }
     
     // MARK: - UIImagePickerControllerDelegate

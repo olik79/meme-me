@@ -38,4 +38,10 @@ class MemeTableController: UITableViewController {
         return cell!
     }
     
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        let identifier = segue.identifier
+        
+        if identifier == "Open Meme Editor" {
+        }
+    }
 }
