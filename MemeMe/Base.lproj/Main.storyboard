@@ -80,12 +80,18 @@
                                     <rect key="frame" x="0.0" y="0.0" width="150" height="150"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Vcv-Hd-f5G">
-                                            <rect key="frame" x="0.0" y="0.0" width="150" height="150"/>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Vcv-Hd-f5G">
+                                            <rect key="frame" x="12" y="12" width="126" height="126"/>
                                         </imageView>
                                     </subviews>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </view>
+                                <constraints>
+                                    <constraint firstItem="Vcv-Hd-f5G" firstAttribute="leading" secondItem="g9T-Pa-I0B" secondAttribute="leadingMargin" constant="4" id="1Ml-7p-bTA"/>
+                                    <constraint firstItem="Vcv-Hd-f5G" firstAttribute="top" secondItem="g9T-Pa-I0B" secondAttribute="topMargin" constant="4" id="YJm-5a-Jzw"/>
+                                    <constraint firstAttribute="trailingMargin" secondItem="Vcv-Hd-f5G" secondAttribute="trailing" constant="4" id="oBP-jF-VS5"/>
+                                    <constraint firstAttribute="bottomMargin" secondItem="Vcv-Hd-f5G" secondAttribute="bottom" constant="4" id="r4z-gx-RDb"/>
+                                </constraints>
                                 <size key="customSize" width="150" height="150"/>
                             </collectionViewCell>
                         </cells>
