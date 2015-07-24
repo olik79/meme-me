@@ -20,7 +20,7 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <segue destination="X7w-gA-KKE" kind="show" id="ZgM-GX-USE"/>
+                                    <segue destination="X7w-gA-KKE" kind="show" identifier="Show Details" id="ZgM-GX-USE"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -54,6 +54,9 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <navigationItem key="navigationItem" id="jDq-Nw-ngY">
+                        <barButtonItem key="rightBarButtonItem" title="Edit" id="5K0-Pg-Gwo"/>
+                    </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rZY-0H-evP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

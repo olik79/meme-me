@@ -59,10 +59,15 @@ class MemeTableController: UITableViewController {
         return memes.count
     }
     
+    override func tableView(tableView: UITableView, didDeselectRowAtIndexPath indexPath: NSIndexPath) {
+        performSegueWithIdentifier("Show Details", sender: self)
+    }
+    
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         let identifier = segue.identifier
         
-        if identifier == "Open Meme Editor" {
+        if identifier == "Show Details" {
+            
         }
     }
 }
