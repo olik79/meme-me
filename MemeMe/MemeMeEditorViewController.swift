@@ -11,6 +11,8 @@ import UIKit
 class MemeMeEditorViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate {
 
     @IBOutlet weak var toolbar: UIToolbar!
+    @IBOutlet weak var navigationBar: UINavigationBar!
+    
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var pickImageButton: UIBarButtonItem!
     @IBOutlet weak var shootImageButton: UIBarButtonItem!
@@ -103,12 +105,12 @@ class MemeMeEditorViewController: UIViewController, UIImagePickerControllerDeleg
     func showBars(showBars: Bool) {
         if showBars {
             println("showing bars")
-            self.navigationController?.popToRootViewControllerAnimated(true)
+            self.navigationBar.hidden = false
             self.toolbar.hidden = false
             UIApplication.sharedApplication().setStatusBarHidden(true, withAnimation: UIStatusBarAnimation.None)
         } else {
             println("hiding bars")
-            self.navigationController?.popToRootViewControllerAnimated(false)
+            self.navigationBar.hidden = true
             self.toolbar.hidden = true
             UIApplication.sharedApplication().setStatusBarHidden(false, withAnimation: UIStatusBarAnimation.None)
         }

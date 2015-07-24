@@ -11,11 +11,17 @@ import UIKit
 class MemeTableController: UITableViewController {
     var memes: [Meme]!
     
+    override func viewDidLoad() {
+        performSegueWithIdentifier("Open Meme Editor", sender: self)
+    }
+    
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         
         let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
         memes = appDelegate.memes
+        
+        self.tableView.reloadData()
     }
     
     override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
@@ -23,6 +29,8 @@ class MemeTableController: UITableViewController {
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        let row = indexPath.row
+        println ("getting cell \(row)")
         let cellIdentifier = "MemeTableCell"
         let position = indexPath.row
         let currentMeme = self.memes[position]
@@ -36,6 +44,10 @@ class MemeTableController: UITableViewController {
         cell?.imageView?.image = currentMeme.memedImage
         
         return cell!
+    }
+    
+    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return memes.count
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {

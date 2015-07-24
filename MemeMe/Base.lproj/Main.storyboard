@@ -29,7 +29,7 @@
                     <navigationItem key="navigationItem" title="Sent Memes" id="4QY-eO-IBF">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="Xg2-VA-yzT">
                             <connections>
-                                <segue destination="vXZ-lx-hvc" kind="presentation" id="09Z-Qr-Bdu"/>
+                                <segue destination="vXZ-lx-hvc" kind="presentation" identifier="Open Meme Editor" id="09Z-Qr-Bdu"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -170,6 +170,7 @@
                         <outlet property="bottomTextFieldHeightConstraint" destination="nLH-zd-w4P" id="sfz-8z-ga3"/>
                         <outlet property="cancelButton" destination="KCQ-aW-6vT" id="U8i-Wa-1ei"/>
                         <outlet property="imageView" destination="59K-Iy-QpX" id="Zba-hW-pej"/>
+                        <outlet property="navigationBar" destination="Iom-D4-gAS" id="jEI-hR-Dg0"/>
                         <outlet property="pickImageButton" destination="Eeg-Om-3hd" id="bRV-rA-mKu"/>
                         <outlet property="shareButton" destination="O1K-D6-Zj3" id="ugv-6n-DPr"/>
                         <outlet property="shootImageButton" destination="CJ9-PC-AAg" id="ULQ-I9-n6c"/>
