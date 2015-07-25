@@ -59,15 +59,18 @@ class MemeTableController: UITableViewController {
         return memes.count
     }
     
-    override func tableView(tableView: UITableView, didDeselectRowAtIndexPath indexPath: NSIndexPath) {
-        performSegueWithIdentifier("Show Details", sender: self)
-    }
-    
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         let identifier = segue.identifier
         
         if identifier == "Show Details" {
-            
+            if let memeViewerViewController = segue.destinationViewController as? MemeViewerViewController {
+                let cell = sender as! UITableViewCell
+                let indexPath = tableView.indexPathForCell(cell)
+                let row = indexPath!.row
+
+                let meme = memes[row]
+                memeViewerViewController.meme = meme
+            }
         }
     }
 }
