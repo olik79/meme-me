@@ -15,11 +15,16 @@ class MemeMeCollectionViewController: UICollectionViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
-        self.memes = appDelegate.memes
     }
 
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+        self.memes = appDelegate.memes
+        
+        self.collectionView?.reloadData()
+    }
     /*
     // MARK: - Navigation
 
