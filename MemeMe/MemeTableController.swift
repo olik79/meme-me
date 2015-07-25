@@ -13,10 +13,10 @@ class MemeTableController: UITableViewController {
     
     override func viewDidLoad() {
         //performSegueWithIdentifier("Open Meme Editor", sender: self)
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let editorController = storyboard.instantiateViewControllerWithIdentifier("Meme Editor") as!MemeMeEditorViewController
-        
-        self.presentViewController(editorController, animated: false, completion: nil)
+//        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+//        let editorController = storyboard.instantiateViewControllerWithIdentifier("Meme Editor") as!MemeMeEditorViewController
+//        
+//        self.presentViewController(editorController, animated: false, completion: nil)
     }
     
     override func viewWillAppear(animated: Bool) {
