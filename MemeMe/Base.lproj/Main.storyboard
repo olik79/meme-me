@@ -127,7 +127,13 @@
                             <outlet property="delegate" destination="iJi-rR-rgZ" id="1Vw-Sw-cuD"/>
                         </connections>
                     </collectionView>
-                    <navigationItem key="navigationItem" id="dza-oN-dVx"/>
+                    <navigationItem key="navigationItem" id="dza-oN-dVx">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="LDe-lg-DZg">
+                            <connections>
+                                <segue destination="vXZ-lx-hvc" kind="presentation" id="Vjn-IM-2un"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="erH-1m-xaJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -189,7 +195,7 @@
                                     <offsetWrapper key="textShadowOffset" horizontal="0.0" vertical="0.0"/>
                                 </textAttributes>
                                 <items>
-                                    <navigationItem id="s5R-oG-EfJ">
+                                    <navigationItem title="Sent Memes" id="s5R-oG-EfJ">
                                         <barButtonItem key="leftBarButtonItem" systemItem="action" id="O1K-D6-Zj3">
                                             <connections>
                                                 <action selector="shareButtonClicked:" destination="vXZ-lx-hvc" id="Cbb-wZ-yMp"/>
@@ -314,5 +320,6 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="zwS-4p-ScV"/>
+        <segue reference="Vjn-IM-2un"/>
     </inferredMetricsTieBreakers>
 </document>
