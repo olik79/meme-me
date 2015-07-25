@@ -30,6 +30,8 @@ class MemeMeEditorViewController: UIViewController, UIImagePickerControllerDeleg
     let defaultTopText = "TOP"
     let defaultBottomText = "BOTTOM"
     
+    var loadedMeme: Meme!
+    
     let memeTextAttributes = [
         NSStrokeWidthAttributeName : -3.0,
         NSStrokeColorAttributeName : UIColor.blackColor(),
@@ -42,6 +44,15 @@ class MemeMeEditorViewController: UIViewController, UIImagePickerControllerDeleg
         
         registerForKeyboardNotifications()
 
+        if self.loadedMeme != nil {
+            let textTop = self.loadedMeme.textTop
+            let textBottom = self.loadedMeme.textBottom
+            let image = self.loadedMeme.image
+
+            self.topTextField.text = textTop
+            self.bottomTextField.text = textBottom
+            self.imageView.image = image
+        }
     }
     
     override func viewWillDisappear(animated: Bool) {
@@ -53,7 +64,10 @@ class MemeMeEditorViewController: UIViewController, UIImagePickerControllerDeleg
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
-        shareButton.enabled = false
+        if loadedMeme == nil {
+            shareButton.enabled = false
+        }
+        
         if !UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.Camera) {
             shootImageButton.enabled = false
         }

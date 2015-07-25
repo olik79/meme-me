@@ -12,7 +12,11 @@ class MemeTableController: UITableViewController {
     var memes: [Meme]!
     
     override func viewDidLoad() {
-        performSegueWithIdentifier("Open Meme Editor", sender: self)
+        //performSegueWithIdentifier("Open Meme Editor", sender: self)
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let editorController = storyboard.instantiateViewControllerWithIdentifier("Meme Editor") as!MemeMeEditorViewController
+        
+        self.presentViewController(editorController, animated: false, completion: nil)
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -70,6 +74,7 @@ class MemeTableController: UITableViewController {
 
                 let meme = memes[row]
                 memeViewerViewController.meme = meme
+                memeViewerViewController.previousViewController = self
             }
         }
     }
