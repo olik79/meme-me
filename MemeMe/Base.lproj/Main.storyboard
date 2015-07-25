@@ -118,6 +118,7 @@
                                 <size key="customSize" width="150" height="150"/>
                                 <connections>
                                     <outlet property="imageView" destination="Vcv-Hd-f5G" id="ZWr-FR-oHk"/>
+                                    <segue destination="X7w-gA-KKE" kind="show" identifier="Show Details" id="zwS-4p-ScV"/>
                                 </connections>
                             </collectionViewCell>
                         </cells>
@@ -311,4 +312,7 @@
         <image name="CollectionViewTabItem" width="25" height="25"/>
         <image name="TableViewTabItem" width="25" height="25"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="zwS-4p-ScV"/>
+    </inferredMetricsTieBreakers>
 </document>

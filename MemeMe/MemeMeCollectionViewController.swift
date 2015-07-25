@@ -82,5 +82,20 @@ class MemeMeCollectionViewController: UICollectionViewController {
     
     }
     */
-
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        let identifier = segue.identifier
+        
+        if identifier == "Show Details" {
+            if let memeViewerViewController = segue.destinationViewController as? MemeViewerViewController {
+                let cell = sender as! UICollectionViewCell
+                let indexPath = self.collectionView?.indexPathForCell(cell)
+                let row = indexPath!.row
+                
+                let meme = memes[row]
+                memeViewerViewController.meme = meme
+                memeViewerViewController.previousViewController = self
+            }
+        }
+    }
 }
