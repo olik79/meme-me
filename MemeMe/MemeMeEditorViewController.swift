@@ -122,6 +122,7 @@ class MemeMeEditorViewController: UIViewController, UIImagePickerControllerDeleg
     
     func generateMemedImage() -> UIImage {
         showBars(false)
+        self.imageView.backgroundColor = UIColor.whiteColor()
         
         UIGraphicsBeginImageContext(self.view.frame.size)
         
@@ -131,6 +132,7 @@ class MemeMeEditorViewController: UIViewController, UIImagePickerControllerDeleg
         UIGraphicsEndImageContext()
         
         showBars(true)
+        self.imageView.backgroundColor = UIColor.blackColor()
         return memedImage
     }
     
