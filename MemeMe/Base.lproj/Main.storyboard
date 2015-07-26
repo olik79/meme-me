@@ -249,10 +249,10 @@
             </objects>
             <point key="canvasLocation" x="2083" y="523"/>
         </scene>
-        <!--Meme Tab Bar View Controller-->
+        <!--Tab Bar Controller-->
         <scene sceneID="dAi-6h-Akg">
             <objects>
-                <tabBarController id="nLu-d9-OsM" customClass="MemeTabBarViewController" customModule="MemeMe" customModuleProvider="target" sceneMemberID="viewController">
+                <tabBarController id="nLu-d9-OsM" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="hiB-V7-1rT">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="DHn-I3-57o">
                             <connections>
