@@ -12,11 +12,6 @@ class MemeTableController: UITableViewController {
     var memes: [Meme]!
     
     override func viewDidLoad() {
-        //performSegueWithIdentifier("Open Meme Editor", sender: self)
-//        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-//        let editorController = storyboard.instantiateViewControllerWithIdentifier("Meme Editor") as!MemeMeEditorViewController
-//        
-//        self.presentViewController(editorController, animated: false, completion: nil)
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -25,7 +20,7 @@ class MemeTableController: UITableViewController {
         let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
         memes = appDelegate.memes
         
-        self.tableView.reloadData()
+        tableView.reloadData()
     }
     
     override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
@@ -36,7 +31,7 @@ class MemeTableController: UITableViewController {
         if editingStyle == UITableViewCellEditingStyle.Delete {
             let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
             appDelegate.memes.removeAtIndex(indexPath.row)
-            self.memes.removeAtIndex(indexPath.row)
+            memes.removeAtIndex(indexPath.row)
             tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Automatic)
         }
     }
@@ -46,7 +41,7 @@ class MemeTableController: UITableViewController {
         println ("getting cell \(row)")
         let cellIdentifier = "MemeTableCell"
         let position = indexPath.row
-        let currentMeme = self.memes[position]
+        let currentMeme = memes[position]
         
         var cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier) as? UITableViewCell
         if cell == nil {

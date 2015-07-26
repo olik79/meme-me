@@ -44,14 +44,14 @@ class MemeMeEditorViewController: UIViewController, UIImagePickerControllerDeleg
         
         registerForKeyboardNotifications()
 
-        if self.loadedMeme != nil {
-            let textTop = self.loadedMeme.textTop
-            let textBottom = self.loadedMeme.textBottom
-            let image = self.loadedMeme.image
+        if loadedMeme != nil {
+            let textTop = loadedMeme.textTop
+            let textBottom = loadedMeme.textBottom
+            let image = loadedMeme.image
 
-            self.topTextField.text = textTop
-            self.bottomTextField.text = textBottom
-            self.imageView.image = image
+            topTextField.text = textTop
+            bottomTextField.text = textBottom
+            imageView.image = image
         }
     }
     
@@ -100,17 +100,17 @@ class MemeMeEditorViewController: UIViewController, UIImagePickerControllerDeleg
     }
     
     func keyboardWillShow(notification: NSNotification) {
-        if !self.keyboardShown && !self.topTextField.isFirstResponder() {
+        if !keyboardShown && !topTextField.isFirstResponder() {
             view.frame.origin.y -= getHeightOfKeyboard(notification)
-            self.keyboardShown = true
+            keyboardShown = true
             println("keyboardWillShow")
         }
     }
     
     func keyboardWillHide(notification: NSNotification) {
-        if self.keyboardShown {
+        if keyboardShown {
             view.frame.origin.y = 0
-            self.keyboardShown = false
+            keyboardShown = false
             println("keyboardWillHide")
         }
     }
@@ -119,13 +119,13 @@ class MemeMeEditorViewController: UIViewController, UIImagePickerControllerDeleg
     func showBars(showBars: Bool) {
         if showBars {
             println("showing bars")
-            self.navigationBar.hidden = false
-            self.toolbar.hidden = false
+            navigationBar.hidden = false
+            toolbar.hidden = false
             UIApplication.sharedApplication().setStatusBarHidden(true, withAnimation: UIStatusBarAnimation.None)
         } else {
             println("hiding bars")
-            self.navigationBar.hidden = true
-            self.toolbar.hidden = true
+            navigationBar.hidden = true
+            toolbar.hidden = true
             UIApplication.sharedApplication().setStatusBarHidden(false, withAnimation: UIStatusBarAnimation.None)
         }
     }
@@ -136,17 +136,17 @@ class MemeMeEditorViewController: UIViewController, UIImagePickerControllerDeleg
     
     func generateMemedImage() -> UIImage {
         showBars(false)
-        self.imageView.backgroundColor = UIColor.whiteColor()
+        imageView.backgroundColor = UIColor.whiteColor()
         
-        UIGraphicsBeginImageContext(self.view.frame.size)
+        UIGraphicsBeginImageContext(view.frame.size)
         
-        self.view.drawViewHierarchyInRect(self.view.frame, afterScreenUpdates: true)
+        view.drawViewHierarchyInRect(view.frame, afterScreenUpdates: true)
         let memedImage: UIImage = UIGraphicsGetImageFromCurrentImageContext()
         
         UIGraphicsEndImageContext()
         
         showBars(true)
-        self.imageView.backgroundColor = UIColor.blackColor()
+        imageView.backgroundColor = UIColor.blackColor()
         return memedImage
     }
     
@@ -172,18 +172,18 @@ class MemeMeEditorViewController: UIViewController, UIImagePickerControllerDeleg
         let imagePicker = UIImagePickerController()
         imagePicker.delegate = self
         imagePicker.sourceType = UIImagePickerControllerSourceType.PhotoLibrary
-        self.presentViewController(imagePicker, animated: true, completion: nil)
+        presentViewController(imagePicker, animated: true, completion: nil)
     }
 
     @IBAction func shootImageButtonPressed(sender: UIBarButtonItem) {
         let imagePicker = UIImagePickerController()
         imagePicker.delegate = self
         imagePicker.sourceType = UIImagePickerControllerSourceType.Camera
-        self.presentViewController(imagePicker, animated: true, completion: nil)
+        presentViewController(imagePicker, animated: true, completion: nil)
     }
     
     @IBAction func shareButtonClicked(sender: UIBarButtonItem) {
-        let meme = self.generateMeme()
+        let meme = generateMeme()
         
         if let memedImage = meme.memedImage {
             let activityViewController = UIActivityViewController(activityItems: [memedImage], applicationActivities: nil)
@@ -193,21 +193,19 @@ class MemeMeEditorViewController: UIViewController, UIImagePickerControllerDeleg
                     self.dismissViewControllerAnimated(true, completion: nil)
                 }
             }
-            self.presentViewController(activityViewController, animated: true, completion: {() in
-                // self.dismissViewControllerAnimated(true, completion: nil)
-            })
+            presentViewController(activityViewController, animated: true, completion:nil)
         }
     }
     
     @IBAction func cancelButtonClicked(sender: UIBarButtonItem) {
-        self.dismissViewControllerAnimated(true, completion: nil)
+        dismissViewControllerAnimated(true, completion: nil)
     }
     
     // MARK: - UIImagePickerControllerDelegate
     func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [NSObject : AnyObject]) {
         if let image = info[UIImagePickerControllerOriginalImage] as? UIImage {
-            self.imageView.image = image
-            self.shareButton.enabled = true
+            imageView.image = image
+            shareButton.enabled = true
         }
         
         picker.dismissViewControllerAnimated(true, completion: nil)

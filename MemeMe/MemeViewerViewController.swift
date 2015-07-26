@@ -22,7 +22,7 @@ class MemeViewerViewController: UIViewController {
     }
     
     @IBAction func editButtonClicked(sender: AnyObject) {
-        self.navigationController?.popViewControllerAnimated(false)
+        navigationController?.popViewControllerAnimated(false)
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let editorController = storyboard.instantiateViewControllerWithIdentifier("Meme Editor") as!MemeMeEditorViewController
         

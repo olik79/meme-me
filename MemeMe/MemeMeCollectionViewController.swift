@@ -23,7 +23,7 @@ class MemeMeCollectionViewController: UICollectionViewController {
         let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
         self.memes = appDelegate.memes
         
-        self.collectionView?.reloadData()
+        collectionView?.reloadData()
     }
     /*
     // MARK: - Navigation
@@ -39,13 +39,13 @@ class MemeMeCollectionViewController: UICollectionViewController {
 
     override func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         //#warning Incomplete method implementation -- Return the number of items in the section
-        return self.memes.count
+        return memes.count
     }
 
     override func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier(reuseIdentifier, forIndexPath: indexPath) as! MemeCollectionViewCell
     
-        let item = self.memes[indexPath.row]
+        let item = memes[indexPath.row]
         cell.imageView.image = item.memedImage
         // Configure the cell
     
@@ -89,7 +89,7 @@ class MemeMeCollectionViewController: UICollectionViewController {
         if identifier == "Show Details" {
             if let memeViewerViewController = segue.destinationViewController as? MemeViewerViewController {
                 let cell = sender as! UICollectionViewCell
-                let indexPath = self.collectionView?.indexPathForCell(cell)
+                let indexPath = collectionView?.indexPathForCell(cell)
                 let row = indexPath!.row
                 
                 let meme = memes[row]
