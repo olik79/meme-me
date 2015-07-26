@@ -11,9 +11,6 @@ import UIKit
 class MemeTableController: UITableViewController {
     var memes: [Meme]!
     
-    override func viewDidLoad() {
-    }
-    
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         
