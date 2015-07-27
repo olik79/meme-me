@@ -34,6 +34,10 @@
                             <outlet property="rightBarButtonItem" destination="3Ej-gE-bdx" id="JX8-H4-hN7"/>
                         </connections>
                     </navigationItem>
+                    <connections>
+                        <outlet property="addButton" destination="Xg2-VA-yzT" id="2xA-px-Y5y"/>
+                        <outlet property="editButton" destination="3Ej-gE-bdx" id="0Ng-UQ-osj"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dTq-wH-ACI" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <barButtonItem systemItem="add" id="Xg2-VA-yzT">
@@ -41,7 +45,11 @@
                         <segue destination="vXZ-lx-hvc" kind="presentation" identifier="Open Meme Editor" id="09Z-Qr-Bdu"/>
                     </connections>
                 </barButtonItem>
-                <barButtonItem systemItem="edit" id="3Ej-gE-bdx"/>
+                <barButtonItem systemItem="edit" id="3Ej-gE-bdx">
+                    <connections>
+                        <action selector="editButtonClicked:" destination="Qmk-55-bfC" id="9J5-Xj-j57"/>
+                    </connections>
+                </barButtonItem>
             </objects>
             <point key="canvasLocation" x="1170" y="-311"/>
         </scene>
@@ -131,7 +139,7 @@
                             <outlet property="delegate" destination="iJi-rR-rgZ" id="1Vw-Sw-cuD"/>
                         </connections>
                     </collectionView>
-                    <navigationItem key="navigationItem" title="Sent Meme" id="dza-oN-dVx">
+                    <navigationItem key="navigationItem" title="Sent Meme" id="dza-oN-dVx" userLabel="Sent Memes">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="LDe-lg-DZg">
                             <connections>
                                 <segue destination="vXZ-lx-hvc" kind="presentation" id="Vjn-IM-2un"/>
@@ -323,7 +331,7 @@
         <image name="TableViewTabItem" width="25" height="25"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="ejU-J1-OUA"/>
-        <segue reference="09Z-Qr-Bdu"/>
+        <segue reference="zwS-4p-ScV"/>
+        <segue reference="Vjn-IM-2un"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -11,6 +11,9 @@ import UIKit
 class MemeTableController: UITableViewController {
     var memes: [Meme]!
     
+    @IBOutlet var addButton: UIBarButtonItem!
+    @IBOutlet var editButton: UIBarButtonItem!
+    
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         
@@ -18,6 +21,13 @@ class MemeTableController: UITableViewController {
         memes = appDelegate.memes
         
         tableView.reloadData()
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        navigationItem.rightBarButtonItems = [addButton]
+        navigationItem.leftBarButtonItems = [editButton]
     }
     
     override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
@@ -69,5 +79,9 @@ class MemeTableController: UITableViewController {
                 memeViewerViewController.previousViewController = self
             }
         }
+    }
+    
+    @IBAction func editButtonClicked(sender: UIBarButtonItem) {
+        tableView.setEditing(true, animated: true)
     }
 }
