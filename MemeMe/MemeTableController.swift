@@ -75,7 +75,10 @@ class MemeTableController: UITableViewController {
                 let row = indexPath!.row
 
                 let meme = memes[row]
+                let memeIndex = row
+                
                 memeViewerViewController.meme = meme
+                memeViewerViewController.memeIndex = memeIndex
                 memeViewerViewController.previousViewController = self
             }
         }

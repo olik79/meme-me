@@ -78,18 +78,24 @@
                         </constraints>
                     </view>
                     <extendedEdge key="edgesForExtendedLayout" top="YES"/>
-                    <navigationItem key="navigationItem" title="Meme Details" id="jDq-Nw-ngY">
-                        <barButtonItem key="rightBarButtonItem" title="Edit" id="5K0-Pg-Gwo">
-                            <connections>
-                                <action selector="editButtonClicked:" destination="X7w-gA-KKE" id="68C-WR-qjS"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="Meme Details" id="jDq-Nw-ngY"/>
                     <connections>
+                        <outlet property="deleteButton" destination="4K3-Ga-lbd" id="XS8-1Y-pIj"/>
+                        <outlet property="editButton" destination="5K0-Pg-Gwo" id="xnm-QN-xhH"/>
                         <outlet property="imageView" destination="S6l-2T-lHi" id="TkH-MZ-73M"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rZY-0H-evP" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <barButtonItem title="Delete" id="4K3-Ga-lbd" userLabel="Delete">
+                    <connections>
+                        <action selector="deleteButtonClicked:" destination="X7w-gA-KKE" id="cOK-vK-gjn"/>
+                    </connections>
+                </barButtonItem>
+                <barButtonItem title="Edit" id="5K0-Pg-Gwo">
+                    <connections>
+                        <action selector="editButtonClicked:" destination="X7w-gA-KKE" id="68C-WR-qjS"/>
+                    </connections>
+                </barButtonItem>
             </objects>
             <point key="canvasLocation" x="2083" y="-311"/>
         </scene>
